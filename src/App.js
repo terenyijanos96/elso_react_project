@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { lista } from "./model/adatok";
+import "./App.css";
+import Kartya from "./component/Kartya";
 
 function App() {
+  function kattintas(id) {
+    console.log("szülőkomponensben", id)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="App">
+        <header className="App-header">
+          <h1>Első react projekt</h1>
+        </header>
+        <article className="row">
+          {lista.map((elem, index) => {
+            return <Kartya obj={elem} key={index} kattintas={kattintas} />;
+          })}
+        </article>
+      </div>
+    </>
   );
 }
 
